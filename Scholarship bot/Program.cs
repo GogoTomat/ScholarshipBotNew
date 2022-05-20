@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +10,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
+//инициализация бота
 var botClient = new TelegramBotClient("5133602661:AAGlVmRW8en513lPgcjaaAflDxaVdywTH4A");
 using var cts = new CancellationTokenSource();
 
@@ -29,7 +30,7 @@ Console.WriteLine($"Start listening for @{me.Username}");
 Console.ReadLine();
 
 cts.Cancel();
-
+//отслеживание нажатий кнопок
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
     if (update.Type == UpdateType.CallbackQuery)
@@ -123,6 +124,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
     var chatId = update.Message.Chat.Id;
     var messageText = update.Message.Text;
 
+    //кнопка для набора очков
     InlineKeyboardMarkup farm = new(new[]
  {
         new []
@@ -132,6 +134,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
     });
 
+    //кнопка для магазина
     InlineKeyboardMarkup shop = new(new[]
 {
         new []
@@ -145,6 +148,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
     });
 
+    //начало игры
     if (messageText == "/start")
     {
         Message sentMessage = await botClient.SendTextMessageAsync(
