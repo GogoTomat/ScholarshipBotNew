@@ -1,0 +1,2 @@
+/Users/markkomissarov/RiderProjects/Scholarship bot/Scholarship bot/obj/Debug/Scholarship bot.csproj.AssemblyReference.cache
+/Users/markkomissarov/RiderProjects/Scholarship bot/Scholarship bot/obj/Debug/Scholarship bot.csproj.CoreCompileInputs.cache
